@@ -16,11 +16,12 @@ jobs:
       # Checkout del código
       - name: Checkout code
         uses: actions/checkout@v3
-      # Uso del GITHUB_TOKEN para llamar a la API de GitHub
-      - name: Use GITHUB_TOKEN
+      # Uso del Personal Access Token para llamar a la API de GitHub
+      - name: Use Personal Access Token
         run: |
-          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          curl -H "Authorization: Bearer ${{ secrets.PAT_SECRET }}" \
                -H "Accept: application/vnd.github.v3+json" \
                https://api.github.com/user/repos
+
 # GITHUB_TOKEN se genera automáticamente para cada ejecución del flujo
 # y tiene permisos predeterminados para interactuar con el repositorio.
